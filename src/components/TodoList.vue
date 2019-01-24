@@ -1,14 +1,15 @@
 <template>
   <div>Привет, {{name}}!
     <button v-on:click="addTodo">Добавить WTF?</button>
-    <todo-item
-      v-for="item in todos"
-      :key="item.id"
-      :text="item.text"
-      :isClosed="item.isClosed"
-    >
-      {{item.text}}
-    </todo-item>
+    <ul>
+      <todo-item
+        v-for="item in todos"
+        :key="item.id"
+        :text="item.text"
+        :isClosed="item.isClosed"
+        :id="item.id"
+      ></todo-item>
+    </ul>
   </div>
 </template>
 

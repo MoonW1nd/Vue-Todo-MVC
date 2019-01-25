@@ -1,7 +1,7 @@
 <template>
-  <div>Привет, {{name}}!
-    <button v-on:click="addTodo">Добавить WTF?</button>
-    <ul>
+  <div class="TodoList">
+    <todo-input/>
+    <ul class="TodoList-ItemList">
       <todo-item
         v-for="item in todos"
         :key="item.id"
@@ -17,6 +17,7 @@
 import { mapState, mapMutations } from 'vuex'
 import { ADD_TODO } from '../store/mutation-types'
 import TodoItem from './TodoItem.vue'
+import TodoInput from './TodoInput.vue'
 
 export default {
   name: 'Hello',
@@ -33,6 +34,25 @@ export default {
       addTodo: ADD_TODO
     })
   },
-  components: { TodoItem }
+  components: { TodoItem, TodoInput }
 }
 </script>
+
+<style lang="scss" scoped>
+.TodoList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &-ItemList {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    width: calc(50vw - 15px);
+    min-width: 350px;
+    max-width: 70ch;
+  }
+}
+</style>
+

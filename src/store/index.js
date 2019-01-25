@@ -11,17 +11,17 @@ export const store = new Vuex.Store({
       {
         id: 1,
         isClosed: true,
-        text: 'WTF?'
+        text: 'Create Todo list'
       }
     ],
     index: 10
   },
   mutations: {
-    [ADD_TODO] (state) {
+    [ADD_TODO] (state, value) {
       addTodo(state, {
         id: state.index++,
         isClosed: false,
-        text: 'WTF?'
+        text: value
       })
     },
     [REMOVE_TODO] (state) {

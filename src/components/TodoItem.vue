@@ -1,6 +1,6 @@
 <template>
-  <li class="Todo" v-bind:class="[{ 'Todo_closed': isClosed }]">
-    <label class="Todo-Label" @click.prevent="toggleClosed(id)">
+  <li class="Todo" v-bind:class="[{ 'Todo_closed': isClosed }]" @click.prevent="toggleClosed(id)">
+    <label class="Todo-Label">
       <input class="Todo-Checkbox" type="checkbox" v-bind:checked="isClosed"/>
       <p class="Todo-Text">{{text}}</p>
     </label>
@@ -38,12 +38,12 @@ export default {
   position: relative;
   font: 18px arial, sans-serif;
   color: #000000;
+  cursor: pointer;
 
   &-Label {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    cursor: pointer;
   }
 
   &-Checkbox {

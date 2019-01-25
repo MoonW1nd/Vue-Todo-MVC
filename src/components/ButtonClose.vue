@@ -1,22 +1,11 @@
 <template>
-  <button class="ButtonClose" :class="mix" @click.stop="removeTodo(id)"></button>
+  <button class="ButtonClose" v-on="$listeners" v-bind="$attrs"></button>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-import { REMOVE_TODO } from '../store/mutation-types'
-
 export default {
   name: 'ButtonClose',
-  props: {
-    id: Number,
-    mix: String
-  },
-  methods: {
-    ...mapMutations({
-      removeTodo: REMOVE_TODO
-    })
-  }
+  inheritAttrs: false
 }
 </script>
 

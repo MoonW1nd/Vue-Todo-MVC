@@ -4,17 +4,17 @@
       <input class="TodoItem-Checkbox" type="checkbox" v-bind:checked="isClosed"/>
       <p class="TodoItem-Text">{{text}}</p>
     </label>
-    <button-close
+    <button-close-wrapper
       :id="id"
       :mix="'TodoItem-ButtonClose'"
-    ></button-close>
+    ></button-close-wrapper>
   </li>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import { TOGGLE_OPEN } from '../store/mutation-types'
-import ButtonClose from './ButtonClose.vue'
+import ButtonCloseWrapper from '@/wrappers/ButtonClose.wrap.vue'
 
 export default {
   name: 'TodoItem',
@@ -23,7 +23,7 @@ export default {
     text: String,
     id: Number
   },
-  components: { ButtonClose },
+  components: { ButtonCloseWrapper },
   methods: {
     ...mapMutations({
       toggleClosed: TOGGLE_OPEN

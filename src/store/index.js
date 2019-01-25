@@ -1,7 +1,7 @@
 import { ADD_TODO, REMOVE_TODO, TOGGLE_OPEN } from './mutation-types'
 import Vuex from 'vuex'
 import Vue from 'vue'
-import { addTodo, toggleOpen } from './mutations'
+import { addTodo, toggleOpen, removeTodo } from './mutations'
 
 Vue.use(Vuex)
 
@@ -24,8 +24,8 @@ export const store = new Vuex.Store({
         text: value
       })
     },
-    [REMOVE_TODO] (state) {
-
+    [REMOVE_TODO] (state, id) {
+      removeTodo(state, id)
     },
     [TOGGLE_OPEN] (state, id) {
       toggleOpen(state, id)

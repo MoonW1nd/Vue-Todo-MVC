@@ -12,6 +12,10 @@
 import {store} from '../store'
 import { ADD_TODO } from '../store/mutation-types'
 
+/**
+ * @class TodoInput
+ * @description инпут для ввода теста to-do
+ */
 export default {
   name: 'TodoInput',
   data: function () {
@@ -63,4 +67,3 @@ export default {
   }
 }
 </style>
-

@@ -1,15 +1,20 @@
 <template>
-  <li class="Todo" v-bind:class="[{ 'Todo_closed': isClosed }]" @click.prevent="toggleClosed(id)">
-    <label class="Todo-Label">
-      <input class="Todo-Checkbox" type="checkbox" v-bind:checked="isClosed"/>
-      <p class="Todo-Text">{{text}}</p>
+  <li tab-index='0' class="TodoItem" v-bind:class="[{ 'TodoItem_closed': isClosed }]" @click.prevent="toggleClosed(id)">
+    <label class="TodoItem-Label">
+      <input class="TodoItem-Checkbox" type="checkbox" v-bind:checked="isClosed"/>
+      <p class="TodoItem-Text">{{text}}</p>
     </label>
+    <button-close
+      :id="id"
+      :mix="'TodoItem-ButtonClose'"
+    ></button-close>
   </li>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
 import { TOGGLE_OPEN } from '../store/mutation-types'
+import ButtonClose from './ButtonClose.vue'
 
 export default {
   name: 'TodoItem',
@@ -18,6 +23,7 @@ export default {
     text: String,
     id: Number
   },
+  components: { ButtonClose },
   methods: {
     ...mapMutations({
       toggleClosed: TOGGLE_OPEN
@@ -27,7 +33,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.Todo {
+.TodoItem {
   margin-top: 10px;
   width: 100%;
   height: 58px;
@@ -83,9 +89,16 @@ export default {
   }
 
   &_closed {
-    .Todo-Text {
+    .TodoItem-Text {
       text-decoration: line-through;
       color: #e0e0e0;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .TodoItem-ButtonClose {
+      display: block;
     }
   }
 }

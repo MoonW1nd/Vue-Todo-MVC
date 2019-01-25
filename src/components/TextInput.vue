@@ -1,40 +1,39 @@
 <template>
   <input
     type="text"
-    v-model="inputValue"
-    placeholder="Add task"
-    class="TodoInput"
-    @keypress.enter="addTodo(inputValue)"
+    class="TextInput"
+    @input="input"
+    v-on="listeners"
+    v-bind="$attrs"
+    :value="value"
   />
 </template>
 
 <script>
-import {store} from '../store'
-import { ADD_TODO } from '../store/mutation-types'
-
 /**
- * @class TodoInput
- * @description инпут для ввода теста to-do
+ * @class TextInput
+ * @description инпут для ввода теста
  */
 export default {
-  name: 'TodoInput',
-  data: function () {
-    return {
-      inputValue: ''
+  name: 'TextInput',
+  props: ['value'],
+  methods: {
+    input (event) {
+      this.$emit('input', event.target.value)
     }
   },
-  store,
-  methods: {
-    addTodo (value) {
-      store.commit(ADD_TODO, this.inputValue)
-      this.inputValue = ''
+  computed: {
+    listeners () {
+      const { input, ...listeners } = this.$listeners
+      return listeners
     }
-  }
+  },
+  inheritAttrs: false
 }
 </script>
 
 <style lang="scss" scoped>
-.TodoInput {
+.TextInput {
   font: 18px arial, sans-serif;
   border: none;
   padding: 0;

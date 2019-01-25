@@ -1,6 +1,6 @@
 <template>
   <div class="TodoList">
-    <todo-input/>
+    <text-input-wrapper placeholder="Add task"/>
     <ul class="TodoList-ItemList">
       <todo-item
         v-for="item in todos"
@@ -17,7 +17,7 @@
 import { mapState, mapMutations } from 'vuex'
 import { ADD_TODO } from '../store/mutation-types'
 import TodoItem from './TodoItem.vue'
-import TodoInput from './TodoInput.vue'
+import TextInputWrapper from '@/wrappers/TextInput.wrap.vue'
 
 export default {
   name: 'Hello',
@@ -34,7 +34,7 @@ export default {
       addTodo: ADD_TODO
     })
   },
-  components: { TodoItem, TodoInput }
+  components: { TodoItem, TextInputWrapper }
 }
 </script>
 

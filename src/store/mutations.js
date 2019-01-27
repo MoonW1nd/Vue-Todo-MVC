@@ -24,4 +24,9 @@ export function removeTodo (state, payload) {
 export function toggleOpen (state, payload) {
   const todo = state.todos.filter(todo => todo.id === payload)[0]
   todo.isClosed = !todo.isClosed
+  if (todo.isClose === true) {
+    todo.closeTime = Date.now()
+  } else {
+    todo.closeTime = null
+  }
 }

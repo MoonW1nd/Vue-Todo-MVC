@@ -9,17 +9,21 @@ export const store = new Vuex.Store({
   state: {
     todos: [
       {
-        id: 1,
+        id: 0,
+        createTime: 1548607549057,
+        closeTime: 1548607749057,
         isClosed: true,
         text: 'Create Todo list'
       }
     ],
-    index: 10
+    nextId: 1
   },
   mutations: {
     [ADD_TODO] (state, value) {
       addTodo(state, {
-        id: state.index++,
+        id: state.nextId++,
+        createTime: Date.now(),
+        closeTime: null,
         isClosed: false,
         text: value
       })

@@ -86,10 +86,10 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Documentation',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Vue.js documentation'
     }
   }
 }

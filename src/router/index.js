@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import TodoList from '@/components/TodoList.vue'
-import HelloWorld from '@/components/HelloWorld.vue'
+import Documentation from '@/components/Documentation.vue'
 
 Vue.use(Router)
 
@@ -14,8 +14,8 @@ export default new Router({
     },
     {
       path: '/doc',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Documentation',
+      component: Documentation
     }
   ]
 })

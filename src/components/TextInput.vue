@@ -13,6 +13,7 @@
 /**
  * @class TextInput
  * @description инпут для ввода теста
+ * @property {string} value - значение инпута
  */
 export default {
   name: 'TextInput',

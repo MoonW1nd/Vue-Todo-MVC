@@ -1,5 +1,5 @@
 <template>
-  <li tab-index='0' class="TodoItem" v-bind:class="[{ 'TodoItem_closed': isClosed }]" @click.prevent="toggleClosed(id)">
+  <li tab-index='0' class="TodoItem" v-on="$listeners" v-bind="$attrs">
     <label class="TodoItem-Label">
       <input class="TodoItem-Checkbox" type="checkbox" v-bind:checked="isClosed"/>
       <p class="TodoItem-Text">{{text}}</p>
@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
-import { TOGGLE_OPEN } from '../store/mutation-types'
 import ButtonCloseWrapper from '@/wrappers/ButtonClose.wrap.vue'
 
 export default {
@@ -24,11 +22,7 @@ export default {
     id: Number
   },
   components: { ButtonCloseWrapper },
-  methods: {
-    ...mapMutations({
-      toggleClosed: TOGGLE_OPEN
-    })
-  }
+  inheritAttrs: false
 }
 </script>
 

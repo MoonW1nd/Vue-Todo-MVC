@@ -3,6 +3,10 @@
 </template>
 
 <script>
+/**
+ * @class ButtonClose
+ * @description кнопка зарытия (красный крест)
+ */
 export default {
   name: 'ButtonClose',
   inheritAttrs: false

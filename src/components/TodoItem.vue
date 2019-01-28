@@ -1,27 +1,33 @@
 <template>
   <li tab-index='0' class="TodoItem" v-on="$listeners" v-bind="$attrs">
     <label class="TodoItem-Label">
-      <input class="TodoItem-Checkbox" type="checkbox" v-bind:checked="isClosed"/>
+      <input
+        class="TodoItem-Checkbox"
+        type="checkbox"
+        @click.stop="onClickCheckbox(id)"
+        v-bind:checked="isClosed"
+      />
       <p class="TodoItem-Text">{{text}}</p>
     </label>
-    <button-close-wrapper
+    <ButtonCloseContainer
       :id="id"
       :mix="'TodoItem-ButtonClose'"
-    ></button-close-wrapper>
+    />
   </li>
 </template>
 
 <script>
-import ButtonCloseWrapper from '@/wrappers/ButtonClose.wrap.vue'
+import ButtonCloseContainer from '@/containers/ButtonClose.container.vue'
 
 export default {
   name: 'TodoItem',
   props: {
     isClosed: Boolean,
     text: String,
-    id: Number
+    id: Number,
+    onClickCheckbox: Function
   },
-  components: { ButtonCloseWrapper },
+  components: { ButtonCloseContainer },
   inheritAttrs: false
 }
 </script>
@@ -38,12 +44,12 @@ export default {
   position: relative;
   font: 18px arial, sans-serif;
   color: #000000;
-  cursor: pointer;
 
   &-Label {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
   }
 
   &-Checkbox {
@@ -54,6 +60,7 @@ export default {
     top: 0;
     bottom: 0;
     margin: auto 0;
+    cursor: pointer;
     border: none;
     outline: none;
     -webkit-appearance: none;

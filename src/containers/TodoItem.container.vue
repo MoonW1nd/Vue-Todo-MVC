@@ -1,11 +1,11 @@
 <template>
-  <todo-item
+  <TodoItem
     v-bind:class="[{ 'TodoItem_closed': isClosed }]"
-    @click.prevent="toggleClosed(id)"
+    :onClickCheckbox="toggleClosed"
     :id='id'
     :text='text'
     :isClosed='isClosed'
-  ></todo-item>
+  />
 </template>
 
 <script>
@@ -14,7 +14,7 @@ import { TOGGLE_OPEN } from '../store/mutation-types'
 import TodoItem from '@/components/TodoItem.vue'
 
 export default {
-  name: 'TodoItemWrapper',
+  name: 'TodoItemContainer',
   props: {
     isClosed: Boolean,
     text: String,

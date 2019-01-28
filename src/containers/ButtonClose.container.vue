@@ -8,7 +8,7 @@ import { mapMutations } from 'vuex'
 import { REMOVE_TODO } from '../store/mutation-types'
 
 export default {
-  name: 'ButtonCloseWrapper',
+  name: 'ButtonCloseContainer',
   props: {
     id: Number,
     mix: String

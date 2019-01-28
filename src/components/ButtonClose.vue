@@ -41,7 +41,8 @@ export default {
     content: '×';
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     color: #e06c75;
   }
 }

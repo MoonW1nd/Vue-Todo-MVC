@@ -20,13 +20,15 @@ export const store = new Vuex.Store({
   },
   mutations: {
     [ADD_TODO] (state, value) {
-      addTodo(state, {
-        id: state.nextId++,
-        createTime: Date.now(),
-        closeTime: null,
-        isClosed: false,
-        text: value
-      })
+      if (value !== '') {
+        addTodo(state, {
+          id: state.nextId++,
+          createTime: Date.now(),
+          closeTime: null,
+          isClosed: false,
+          text: value
+        })
+      }
     },
     [REMOVE_TODO] (state, id) {
       removeTodo(state, id)

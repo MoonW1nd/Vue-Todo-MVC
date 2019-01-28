@@ -1,24 +1,18 @@
 <template>
-  <div class="TodoList">
-    <ul class="TodoList-ItemList">
-      <TodoItemContainer
-        v-for="todo in todos"
-        :key="todo.id"
-        :text="todo.text"
-        :isClosed="todo.isClosed"
-        :id="todo.id"
-      />
-    </ul>
-  </div>
+  <main class="Page Page_main">
+    <TodoInputContainer placeholder="Add task"/>
+    <OpenedTodoListContainer/>
+  </main>
 </template>
 
 <script>
-import TodoItemContainer from '@/containers/TodoItem.container.vue'
+import OpenedTodoListContainer from '@/containers/OpenedTodoList.container.vue'
+import TodoInputContainer from '@/containers/TodoInput.container.vue'
 
 export default {
   name: 'TodoList',
   props: ['todos'],
-  components: { TodoItemContainer }
+  components: { OpenedTodoListContainer, TodoInputContainer }
 }
 </script>
 

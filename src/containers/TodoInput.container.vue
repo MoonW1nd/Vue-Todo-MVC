@@ -1,9 +1,9 @@
 <template>
-  <text-input
+  <TextInput
     :class="mix"
     v-model="inputValue"
     @keypress.enter="addTodo"
-  ></text-input>
+  />
 </template>
 
 <script>
@@ -12,7 +12,7 @@ import {store} from '@/store'
 import { ADD_TODO } from '../store/mutation-types'
 
 export default {
-  name: 'TextInputWrapper',
+  name: 'TodoInputContainer',
   data: function () {
     return {
       inputValue: ''
